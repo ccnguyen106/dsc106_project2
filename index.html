@@ -1,236 +1,562 @@
 <!DOCTYPE html>
-<!-- saved from url=(0048)https://dsc106.com/projects/project2_report.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Project 2 Report</title>
-        <style>
-            :root {
-                --color-neutral-95: hsl(220 10% 95%);
-                --color-neutral-90: hsl(220 10% 90%);
-                --color-neutral-80: hsl(220 10% 80%);
-                --color-neutral-70: hsl(220 10% 70%);
-                --color-neutral-60: hsl(220 10% 60%);
-                --color-neutral-50: hsl(220 10% 50%);
-                --color-neutral-40: hsl(220 10% 40%);
-                --color-neutral-30: hsl(220 10% 30%);
-                --color-neutral-20: hsl(220 10% 20%);
-                --color-neutral-10: hsl(220 10% 10%);
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project 2 Report</title>
 
-                figure img {
-                    display: block;
-                    max-width: 100%;
-                    height: auto;
-                    margin: 0 auto;
-                }
-            }
+    <style>
+        :root {
+            --color-neutral-95: hsl(220 10% 95%);
+            --color-neutral-90: hsl(220 10% 90%);
+            --color-neutral-80: hsl(220 10% 80%);
+            --color-neutral-70: hsl(220 10% 70%);
+            --color-neutral-60: hsl(220 10% 60%);
+            --color-neutral-50: hsl(220 10% 50%);
+            --color-neutral-40: hsl(220 10% 40%);
+            --color-neutral-30: hsl(220 10% 30%);
+            --color-neutral-20: hsl(220 10% 20%);
+            --color-neutral-10: hsl(220 10% 10%);
+            --font-sans: system-ui, sans-serif;
+        }
 
+        html {
+            font: 100%/1.5 var(--font-sans);
+            counter-reset: figure;
+            background: var(--color-neutral-95);
+            max-width: min(75vw, 80em);
+            margin: 0 auto;
+        }
+
+        /* Headings */
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            line-height: 1.1;
+            font-weight: 600;
+            text-wrap: balance;
+        }
+
+        h1,
+        h2 {
+            border-bottom: 1px solid var(--color-neutral-80);
+            padding-bottom: 0.2em;
+        }
+
+        h1 {
+            margin-block: 1em 0.5rem;
+            font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+            font-weight: 800;
+        }
+
+        h1 small {
+            display: block;
+            width: fit-content;
+            padding: 0.2em 0.5em;
+            margin-inline: auto;
+            color: white;
+            background: var(--color-neutral-40);
+            font-size: 40%;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        h2 {
+            font-size: 180%;
+            color: var(--color-neutral-30);
+        }
+
+        h3 {
+            font-size: 130%;
+        }
+
+        /* Lists */
+
+        ul,
+        ol {
+            padding-inline-start: 2em;
+        }
+
+        li::marker {
+            color: var(--color-neutral-40);
+        }
+
+        li + li {
+            margin-top: 1em;
+        }
+
+        /* Sectioning elements */
+
+        header {
+            padding-block: 1em;
+            text-align: center;
+        }
+
+        main {
+            background: white;
+            color: var(--color-neutral-20);
+            border-radius: 1rem;
+            padding: 0.1rem 2rem 1.5rem;
+        }
+
+        /* Figures */
+
+        figure {
+            margin: 1em 0;
+            padding: 0.5rem;
+            margin-inline: -0.5em;
+            border: 1px solid var(--color-neutral-80);
+            box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+            text-align: center;
+            background: white;
+        }
+
+        figure img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        .chart-axis-title {
+            margin: 0.25rem 0 0.75rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .figure-context {
+            margin: 0.25rem 0.25rem 1rem;
+            padding: 0.75rem;
+            background: var(--color-neutral-95);
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        figure > figcaption {
+            font: 500 85%/1.5 var(--font-sans);
+            background: var(--color-neutral-95);
+            padding: 0.5rem;
+            margin: -0.5rem;
+            margin-top: 0.5rem;
+            counter-increment: figure;
+            text-align: left;
+        }
+
+        figure > figcaption::before {
+            content: "Figure " counter(figure) ": ";
+            font-weight: bold;
+            color: var(--color-neutral-40);
+        }
+
+        .source-note {
+            color: var(--color-neutral-40);
+            font-size: 0.9rem;
+        }
+
+        .score-key {
+            margin-top: -0.5rem;
+            color: var(--color-neutral-40);
+            font-size: 0.95rem;
+        }
+
+        /* Small screens */
+
+        @media (max-width: 700px) {
             html {
-                font: 100%/1.5 system-ui;
-                counter-reset: figure;
-                background: var(--color-neutral-95);
-                max-width: min(75vw, 80em);
-                margin: 0 auto;
-            }
-
-            /* Headings */
-
-            h1,
-            h2,
-            h3,
-            h4,
-            h5,
-            h6 {
-                line-height: 1.1;
-                font-weight: 600;
-                text-wrap: balance;
-            }
-
-            h1,
-            h2 {
-                border-bottom: 1px solid var(--color-neutral-80);
-                padding-bottom: 0.2em;
-            }
-
-            h1 {
-                margin-block: 1em 0.5rem;
-                font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
-                font-weight: 800;
-
-                
-
-                small {
-                    display: block;
-                    width: fit-content;
-                    padding: 0.2em 0.5em;
-                    margin-inline: auto;
-                    color: white;
-                    background: var(--color-neutral-40);
-                    font-size: 40%;
-                    text-transform: uppercase;
-                    white-space: nowrap;
-                }
-            }
-
-            h2 {
-                font-size: 180%;
-                color: var(--color-neutral-30);
-            }
-
-            h3 {
-                font-size: 130%;
-            }
-
-            /* Lists */
-
-            ul,
-            ol {
-                padding-inline-start: 2em;
-            }
-
-            li {
-                &::marker {
-                    color: var(--color-neutral-40);
-                }
-
-                + li {
-                    margin-top: 0.2em;
-                }
-            }
-
-            /* Sectioning elements */
-
-            header {
-                padding-block: 1em;
-                text-align: center;
+                max-width: 96vw;
             }
 
             main {
-                background: white;
-                color: var(--color-neutral-20);
-                border-radius: 1rem;
-                padding: 0.1rem 2rem;
+                padding-inline: 1rem;
             }
 
-            /* Figures */
+            h1 {
+                font-size: 2.5rem;
+            }
 
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            header p {
+                overflow-wrap: anywhere;
+            }
+        }
+
+        /* Keep each figure together when printing */
+
+        @media print {
             figure {
-                margin: 1em 0;
-                padding: 0.5rem;
-                margin-inline: -0.5em;
-                border: 1px solid var(--color-neutral-80);
-                box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
-                text-align: center;
-                background: white;
-
-                > figcaption {
-                    font: 500 75% var(--font-sans);
-                    background: var(--color-neutral-95);
-                    padding: 0.5rem;
-                    margin: -0.5rem;
-                    margin-top: 0.5rem;
-                    counter-increment: figure;
-                    text-align: left;
-
-                    &::before {
-                        content: "Figure " counter(figure) ": ";
-                        font-weight: bold;
-                        color: var(--color-neutral-40);
-                    }
-
-                    a:not(:hover, :focus, :active) {
-                        color: inherit;
-                        text-decoration: underline;
-                        text-decoration-color: color-mix(
-                            in lab,
-                            currentColor,
-                            transparent 70%
-                        );
-                    }
-                }
+                break-inside: avoid;
             }
-        </style>
-    </head>
+        }
+    </style>
+</head>
 
-    <body>
-        <header>
-            <h1>
-                <small>Project 2</small>
-                Persuasive or Deceptive Visualization?
-            </h1>
+<body>
+    <header>
+        <h1>
+            <small>Project 2</small>
+            Persuasive or Deceptive Visualization?
+        </h1>
 
-            <p><strong>Mac Dang, Athena Lin, Gian Cortez, Christopher Nguyen</strong> — <em>mbdang@ucsd.edu, atl012@ucsd.edu, gicortez@ucsd.edu, chn058@ucsd.edu</em></p>
-        </header>
+        <p>
+            <strong>
+                Mac Dang, Athena Lin, Gian Cortez, Christopher Nguyen
+            </strong>
+            —
+            <em>
+                mbdang@ucsd.edu, atl012@ucsd.edu,
+                gicortez@ucsd.edu, chn058@ucsd.edu
+            </em>
+        </p>
+    </header>
 
-        <main>
-            <h2>Proposition: Naming more officers in a complaint itself increases the likelihood that at least one allegation will be substantiated.</h2>
+    <main>
+        <h2>
+            Proposition: Naming more officers in a complaint itself
+            increases the likelihood that at least one allegation
+            will be substantiated.
+        </h2>
 
-            <section>
-                <h3>FOR the Proposition</h3>
+        <p>
+            An allegation is substantiated when the Civilian Complaint
+            Review Board finds sufficient evidence to support a finding
+            of officer misconduct. We compare two interpretations of
+            why complaints naming more officers have higher
+            substantiation rates.
+        </p>
 
-                <figure>
-                    <img src="supporting_prop_image.png" alt="Supporting prop image">
-                    <figcaption>Complaints naming four or more officers had at least one allegation supported by evidence 78% of the time, compared with 26% for complaints naming one officer, about three times as often.</figcaption>
-                </figure>
+        <p class="source-note">
+            Both figures use the NYC CCRB allegations dataset supplied
+            for this assignment: 33,358 allegation records covering
+            12,056 complaints and 3,996 officers. The dataset includes
+            only officers with at least one substantiated allegation,
+            so these findings describe this selected dataset rather
+            than all NYPD officers or complaints.
+        </p>
 
-                <p>Design Decisions and Rationale: <br>
-                  &emsp;- Score (deceptive to earnest, -2 to +2 scale)
+        <section>
+            <h3>FOR the Proposition</h3>
+
+            <figure>
+                <img
+                    src="supporting_prop_image.png"
+                    alt="Bar chart showing that 26% of complaints
+                         naming one officer had at least one
+                         substantiated allegation, compared with
+                         49% for two officers, 60% for three officers,
+                         and 78% for four or more officers."
+                >
+
+                <p class="chart-axis-title">
+                    Number of officers named
                 </p>
 
-                <ul>
-                    <li><strong>Decision 1: Counting a complaint as a “win” if any allegation was substantiated (Score: -1.5)</strong> <br>
-                        We used “at least one allegation substantiated” instead of the overall substantiation rate. This makes the trend look stronger because complaints with more officers also have more allegations (9 on average for 4+ officers vs. 2 for one), so they get more chances to “win.” We picked this metric because it felt like the more natural way to ask whether a complaint succeeded.</li>
-                    <li><strong>Decision 2: Grouping 4–8 officers into one “4+” bar (Score: 0) </strong><br>
-                        The “4+ officers” bar isn’t really one category, it’s everything from 4 up to 8 officers combined into one. It’s also the smallest group (just 93 complaints), but we graphed it exactly like the other bars, so nothing hints that it’s less reliable. We combined them because showing 4, 5, and 6+ separately made the chart look too messy and uncertain.
-                    </li>
-                    <li><strong>Decision 3: Adding a “3x” arrow over the bars (Score: +1) </strong><br>
-                        The 3x is accurate (78% ÷ 26%), but the big red arrow is only there to make the jump feel more dramatic.  The bars could potentially speak for themselves, but it gives readers an easy number to remember.</li>
-                    <li><strong>Decision 4: Using a light-to-dark green color scale (Score: +2)</strong> <br>
-                        Making the bars get darker as officer count increases makes the climb feel more continuous and intentional than four same colored bars would. It’s a small thoughtful change since it doesn’t change any of the actual numbers.
-</li>
-                </ul>
-            </section>
+                <figcaption>
+                    Complaints naming four or more officers had at
+                    least one allegation supported by evidence 78%
+                    of the time, compared with 26% for complaints
+                    naming one officer—about three times as often.
+                </figcaption>
+            </figure>
 
-            <section>
-                <h3>AGAINST the Proposition</h3>
+            <p><strong>Design Decisions and Rationale:</strong></p>
 
-                <figure>
-                    <img src="against_prop_image.png" alt="Against prop image">
-                    <figcaption>Complaints with six or more allegation types had at least one supported by evidence 69% of the time, compared with 18% for complaints with one type, suggesting complaint size may matter.</figcaption>
-                </figure>
+            <p class="score-key">
+                Score: −2 is fully deceptive; +2 is fully earnest.
+            </p>
 
-                <p>Design Decisions and Rationale: <br>
-                    &emsp;- Score (deceptive to earnest, -2 to +2 scale)
+            <ul>
+                <li>
+                    <strong>
+                        Decision 1: Counting a complaint as a “win”
+                        if any allegation was substantiated
+                        (Score: −1.5)
+                    </strong>
+                    <br>
+                    We used the percentage of complaints with at least
+                    one substantiated allegation rather than the
+                    percentage of individual allegation records
+                    substantiated. Complaints naming more officers
+                    also contain more allegation records: about 9
+                    on average for complaints naming four or more
+                    officers, compared with about 2 for complaints
+                    naming one officer. This gives larger complaints
+                    more opportunities to count as a “win.” We chose
+                    the complaint-level measure because it directly
+                    answers whether a complaint had any substantiated
+                    allegation. The deceptive part is using that valid
+                    measure to suggest that naming more officers
+                    itself explains the difference, without emphasizing
+                    the different numbers of allegations.
+                </li>
+
+                <li>
+                    <strong>
+                        Decision 2: Grouping 4–8 officers into one
+                        “4+” bar (Score: −1)
+                    </strong>
+                    <br>
+                    The “4+ officers” bar combines complaints naming
+                    anywhere from four to eight officers. It is also
+                    the smallest group, with just 93 complaints, but
+                    we displayed it like the larger groups without
+                    showing sample sizes or uncertainty. Combining
+                    these complaints makes the comparison easier to
+                    read, while hiding differences within the group.
+                    Showing four, five, and six or more officers
+                    separately would reveal more detail, but the
+                    small groups would make the pattern less stable
+                    and visually less simple.
+                </li>
+
+                <li>
+                    <strong>
+                        Decision 3: Adding a “3x” arrow over the bars
+                        (Score: +1)
+                    </strong>
+                    <br>
+                    The “3x” annotation summarizes an approximately
+                    accurate comparison: 78% divided by 26% is three.
+                    It gives readers an easy number to remember
+                    without requiring them to calculate the ratio.
+                    The large arrow also makes the difference feel
+                    more dramatic and directs attention to the
+                    endpoints rather than the middle groups. A version
+                    without the arrow would be quieter, but would
+                    make the main comparison less immediate. We scored
+                    this positively because it highlights a supported
+                    numerical comparison, while recognizing that its
+                    size adds persuasive emphasis.
+                </li>
+
+                <li>
+                    <strong>
+                        Decision 4: Using a light-to-dark green color
+                        scale (Score: +2)
+                    </strong>
+                    <br>
+                    We made the bars darker as officer count increased.
+                    The ordered colors reinforce the ordered categories
+                    and help readers follow the comparison from one
+                    officer to four or more. Using one color for every
+                    bar would also be accurate, but would provide less
+                    visual guidance. We consider this earnest because
+                    the color order follows the officer-count order
+                    and does not represent an additional outcome or
+                    claim statistical certainty.
+                </li>
+
+                <li>
+                    <strong>
+                        Decision 5: Using a title that suggests causation
+                        (Score: −1.5)
+                    </strong>
+                    <br>
+                    The phrase “Name four officers” sounds like an action
+                    someone could take to improve the result of a
+                    complaint. Our data compares existing complaints;
+                    it does not show what would happen if someone added
+                    another officer to the same complaint. The title
+                    also simplifies the four-or-more group to “four.”
+                    A title such as “Complaints naming more officers
+                    have higher substantiation rates” would describe
+                    the association more carefully, but would be less
+                    persuasive about our causal proposition.
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>AGAINST the Proposition</h3>
+
+            <figure>
+                <p class="figure-context">
+                    <strong>
+                        Complaint size offers another possible
+                        explanation.
+                    </strong>
+                    Complaints naming four or more officers contain
+                    an average of 4.4 distinct allegation types,
+                    compared with 2.0 for complaints naming one officer.
+                    The chart below shows that complaints with more
+                    allegation types are also substantiated more often.
+                    This raises a question about whether officer count
+                    itself explains the difference.
                 </p>
 
-                <ul>
-                    <li><strong>Decision 1: Using “number of allegations” instead of “number of officers” on the x-axis (Score: +1)</strong> <br>
-                    We switched the x-axis to allegation count and showed that it produces almost the same climbing trend (18% → 69%) that the supporting side climb had. We’re not hiding anything, so we believe it’s an honest choice, but it still does a good job at being persuasive. It doesn’t actually prove the officer-count argument is irrelevant, but it just gives the reader an easier explanation to latch onto instead.
-</li>
-                    <li><strong>Decision 2: Framing the trend as “incident size tracks substantiation likelihood” (Score: -1) </strong> <br>
-                    We worded our annotation to say the incident’s size “tracks” substantiation, which sounds like one is causing the other. In reality, all we showed is that the two move together, not that bigger complaints actually cause higher substantiation. The word “tracks” does a lot of work here since it pushes the reader toward a causality without us ever having to claim it outright.
+                <img
+                    src="against_prop_image.png"
+                    alt="Chart showing that complaints with more
+                         distinct allegation types more often have
+                         at least one substantiated allegation:
+                         18% for one type, 30% for two, 41% for three,
+                         51% for four, 57% for five, and 69% for six
+                         or more."
+                >
 
-                    </li>
-                    <li><strong>Decision 3: Bucketing 6+ allegations into one group (Score: -1)</strong><br>
-                     We did the same thing Side A did with “4+ officers” and lumped every complaint with 6 or more allegations into a single point. It keeps the line from getting messy at the end, but it hides that this last group isn’t really one number, it’s everything from 6 allegations and up.
+                <figcaption>
+                    Complaints with six or more allegation types had
+                    at least one supported by evidence 69% of the time,
+                    compared with 18% for complaints with one type—
+                    suggesting complaint size may matter.
+                </figcaption>
+            </figure>
 
-                    </li>
-                    <li><strong>Decision 4: Shading the area under the line (Score: +1)</strong><br>
-                    We filled in the space under the line instead of just leaving it as a plain line. It doesn’t change any of the actual numbers, but it makes the upward trend feel heavier and more convincing than it would otherwise.
+            <p class="source-note">
+                Counting note: an allegation record is one row in the
+                dataset. A distinct allegation type counts each
+                different allegation label once within a complaint,
+                even if that label appears in multiple records.
+                This explains why the supporting rationale reports
+                about 9 records for complaints naming four or more
+                officers, while the comparison above reports 4.4
+                distinct allegation types.
+            </p>
 
-                    </li>
-                </ul>
-            </section>
+            <p><strong>Design Decisions and Rationale:</strong></p>
 
-            <section>
-                <h2>Final Reflection</h2>
+            <p class="score-key">
+                Score: −2 is fully deceptive; +2 is fully earnest.
+            </p>
 
-                <p>Building the visualizations was the straightforward part; the difficult part was determining which proposition we lean towards based on the visualizations and their design choices, since we need to identify the deceptive techniques used in the visualizations in order to draw the accurate conclusion. At the end, we lean toward the opposite side, because although it seems like there is a causal relationship between the number of officers named and that of substantiation, there are two other factors involved: First, complaints naming more officers are also bigger, with 4.4 allegations on average vs. 2.0 for that of one officer. Second, bigger allegations are substantiated more often, with 69% for over six allegations vs. 18% for one. Since the number of named officers and magnitude of the case are proportional, the gap is influenced by both.<br><br>
-We define ethical analysis and visualization to be actively ensuring the impression the viewers have on the visualizations matches what the data support, and being transparent about the design choices that could change the understanding completely. That includes stating what was counted, how they are grouped, and what comparisons were left out. Although there is only a thin line between acceptable and misleading persuasive choices, we think there are two aspects to consider: Does the visualization match the actual impact? And are viewers able to identify the choices that affect the conclusion the most? It becomes misleading when a design hides something that the viewers should know, such as underrepresented groups, a metric that favors a specific side, or any comparison that might weaken the claim the visualization is trying to make.<br><br>
-What surprised us was how persuasive both the supporting and opposing graphs come out to be just by simple tricks like bucketing the last group together (a 4+ bucket for the supporting side, and a 6+ bucket for the opposing side), picking metrics that favors bigger complaints, and also wording annotations to sound causal (saying breadth “tracks” substantiation) which pushes reader to a causal conclusion. We didn’t fake any numbers, instead we just made framing decisions while cleaning up the charts. It made us realize that people could look at the exact same dataset and walk away genuinely convinced of opposite conclusions just by the framing decisions they chose to take.
+            <ul>
+                <li>
+                    <strong>
+                        Decision 1: Using allegation-type count
+                        instead of officer count on the x-axis
+                        (Score: +1)
+                    </strong>
+                    <br>
+                    We switched the x-axis to the number of distinct
+                    allegation types and showed another rising pattern,
+                    from 18% to 69%. This gives readers a possible
+                    explanation for the officer-count pattern:
+                    complaints naming more officers also tend to
+                    contain more allegation types. We consider it
+                    useful and mostly earnest to show this additional
+                    relationship. However, it does not establish that
+                    officer count has no effect. Comparing officer
+                    counts within groups with the same allegation-type
+                    count would address that question more directly.
+                </li>
 
-</p>
-            </section>
-        </main>
-    <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920" integrity="sha512-L0ha0OXavK/8okipN9F8BtP84dg9DUhPERbBXzwI6dgTA55d2+yweo3pn5CSFYs45/r8md2+xvUPtTdvTNRfjA==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;c822b88e119346678db149ed7b7721c9&quot;,&quot;r&quot;:1,&quot;spa&quot;:2}" crossorigin="anonymous"></script>
+                <li>
+                    <strong>
+                        Decision 2: Framing allegation-type count as
+                        incident breadth (Score: −1)
+                    </strong>
+                    <br>
+                    Our annotation calls the measure “incident breadth,”
+                    encouraging readers to interpret more allegation
+                    types as a bigger or more complex incident.
+                    However, the number of allegation types does not
+                    directly measure incident severity, witnesses, or
+                    available evidence. This makes the complexity
+                    explanation sound more established than our
+                    analysis can show. Calling it “number of distinct
+                    allegation types” throughout would be more precise,
+                    but would provide a less intuitive story about
+                    why the complaints differ.
+                </li>
 
+                <li>
+                    <strong>
+                        Decision 3: Bucketing six or more allegation
+                        types into one group (Score: −1)
+                    </strong>
+                    <br>
+                    We combined all complaints with six or more
+                    allegation types into a single point. This keeps
+                    the end of the chart simple and makes the overall
+                    rise easier to follow, but it hides differences
+                    among complaints within that group. Showing every
+                    count separately would reveal more variation,
+                    while also creating smaller groups and a less
+                    simple trend. Displaying the sample size helps
+                    readers judge the pooled group, but does not
+                    reveal all of its internal differences.
+                </li>
 
-</body></html>
+                <li>
+                    <strong>
+                        Decision 4: Shading the area under the line
+                        (Score: +1)
+                    </strong>
+                    <br>
+                    We used light shading to help readers follow the
+                    rising pattern across allegation-type groups.
+                    The vertical axis begins at zero, and the labeled
+                    points show the actual rates. A plain line would
+                    communicate the same values with less visual
+                    weight, but the shading makes the main pattern
+                    easier to notice. We scored this positively
+                    because it supports the displayed trend, while
+                    recognizing that a smooth filled shape can make
+                    the relationship feel more consistent than the
+                    grouped data alone establishes.
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Final Reflection</h2>
+
+            <p>
+                Building the visualizations was the straightforward
+                part; the difficult part was deciding which
+                interpretation the evidence supported. The supporting
+                chart makes naming more officers look like the reason
+                complaints are substantiated more often. However,
+                complaints naming four or more officers also contain
+                more distinct allegation types: an average of 4.4,
+                compared with 2.0 for complaints naming one officer.
+                Complaints with six or more allegation types had at
+                least one substantiated allegation 69% of the time,
+                compared with 18% for complaints with one type.
+                We lean toward the opposing interpretation because
+                complaint breadth offers another possible explanation.
+                These patterns do not establish what causes the
+                difference or whether officer count has an effect
+                of its own.
+            </p>
+
+            <p>
+                We define ethical analysis and visualization as making
+                sure the impression a chart creates matches what the
+                data supports. This requires explaining what was
+                counted, how groups were formed, and which comparisons
+                were left out. Persuasive choices such as color and
+                annotations can help readers notice a meaningful
+                pattern. They become misleading when they hide
+                information that could change the reader’s conclusion,
+                such as small sample sizes, the difference between
+                complaint-level and allegation-level rates, or the use
+                of allegation-type count as a measure of incident
+                complexity. For us, the boundary is whether readers
+                receive enough context to judge the argument for
+                themselves.
+            </p>
+
+            <p>
+                What surprised us was how persuasive both views could
+                become through choices such as pooling the last group,
+                highlighting a ratio, and framing allegation count as
+                incident breadth. We did not need to change the numbers
+                to encourage different conclusions. This made us
+                realize that accurate numbers alone do not make a
+                visualization ethical: the measures, comparisons,
+                labels, and missing context also matter. We found
+                that acknowledging the limits of both arguments was
+                more defensible than treating either visualization
+                as proof of causation.
+            </p>
+        </section>
+    </main>
+</body>
+</html>
