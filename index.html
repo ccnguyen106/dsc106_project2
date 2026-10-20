@@ -14,6 +14,13 @@
                 --color-neutral-30: hsl(220 10% 30%);
                 --color-neutral-20: hsl(220 10% 20%);
                 --color-neutral-10: hsl(220 10% 10%);
+
+                figure img {
+                    display: block;
+                    max-width: 100%;
+                    height: auto;
+                    margin: 0 auto;
+                }
             }
 
             html {
@@ -47,6 +54,8 @@
                 margin-block: 1em 0.5rem;
                 font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
                 font-weight: 800;
+
+                
 
                 small {
                     display: block;
@@ -152,22 +161,31 @@
         </header>
 
         <main>
-            <h2>Proposition: [STATE PROPOSITION]</h2>
+            <h2>Proposition: Naming more officers in a complaint itself increases the likelihood that at least one allegation will be substantiated.</h2>
 
             <section>
                 <h3>FOR the Proposition</h3>
 
                 <figure>
-                    <img src="./Project 2 Report_files/IMAGE_FILENAME" alt="">
-                    <figcaption>BRIEF CAPTION HERE.</figcaption>
+                    <img src="supporting_prop_image.png" alt="Supporting prop image">
+                    <figcaption>Complaints naming four or more officers had at least one allegation supported by evidence 78% of the time, compared with 26% for complaints naming one officer, about three times as often.</figcaption>
                 </figure>
 
-                <p>Design Decisions and Rationale:</p>
+                <p>Design Decisions and Rationale: <br>
+                  &emsp;- Score (deceptive to earnest, -2 to +2 scale)
+                </p>
 
                 <ul>
-                    <li>RATIONALE_1</li>
-                    <li>RATIONALE_2</li>
-                    <li>RATIONALE_3</li>
+                    <li><strong>Decision 1: Counting a complaint as a “win” if any allegation was substantiated (Score: -1.5)</strong> <br>
+                        We used “at least one allegation substantiated” instead of the overall substantiation rate. This makes the trend look stronger because complaints with more officers also have more allegations (9 on average for 4+ officers vs. 2 for one), so they get more chances to “win.” We picked this metric because it felt like the more natural way to ask whether a complaint succeeded.</li>
+                    <li><strong>Decision 2: Grouping 4–8 officers into one “4+” bar (Score: 0) </strong><br>
+                        The “4+ officers” bar isn’t really one category, it’s everything from 4 up to 8 officers combined into one. It’s also the smallest group (just 93 complaints), but we graphed it exactly like the other bars, so nothing hints that it’s less reliable. We combined them because showing 4, 5, and 6+ separately made the chart look too messy and uncertain.
+                    </li>
+                    <li><strong>Decision 3: Adding a “3x” arrow over the bars (Score: 1) </strong><br>
+                        The 3x is accurate (78% ÷ 26%), but the big red arrow is only there to make the jump feel more dramatic.  The bars could potentially speak for themselves, but it gives readers an easy number to remember.</li>
+                    <li><strong>Decision 4: Using a light-to-dark green color scale (Score: 2)</strong> <br>
+                        Making the bars get darker as officer count increases makes the climb feel more continuous and intentional than four same colored bars would. It’s a small thoughtful change since it doesn’t change any of the actual numbers.
+</li>
                 </ul>
             </section>
 
@@ -175,23 +193,41 @@
                 <h3>AGAINST the Proposition</h3>
 
                 <figure>
-                    <img src="./Project 2 Report_files/IMAGE_FILENAME" alt="">
-                    <figcaption>BRIEF CAPTION HERE.</figcaption>
+                    <img src="against_prop_image.png" alt="Against prop image">
+                    <figcaption>Complaints with six or more allegation types had at least one supported by evidence 69% of the time, compared with 18% for complaints with one type, suggesting complaint size may matter.</figcaption>
                 </figure>
 
-                <p>Design Decisions and Rationale:</p>
+                <p>Design Decisions and Rationale: <br>
+                    &emsp;- Score (deceptive to earnest, -2 to +2 scale)
+                </p>
 
                 <ul>
-                    <li>RATIONALE_1</li>
-                    <li>RATIONALE_2</li>
-                    <li>RATIONALE_3</li>
+                    <li><strong>Decision 1: Using “number of allegations” instead of “number of officers” on the x-axis (Score: +1)</strong> <br>
+                    We switched the x-axis to allegation count and showed that it produces almost the same climbing trend (18% → 69%) that the supporting side climb had. We’re not hiding anything, so we believe it’s an honest choice, but it still does a good job at being persuasive. It doesn’t actually prove the officer-count argument is irrelevant, but it just gives the reader an easier explanation to latch onto instead.
+</li>
+                    <li><strong>Decision 2: Framing the trend as “incident size tracks substantiation likelihood” (Score: -1) </strong> <br>
+                    We worded our annotation to say the incident’s size “tracks” substantiation, which sounds like one is causing the other. In reality, all we showed is that the two move together, not that bigger complaints actually cause higher substantiation. The word “tracks” does a lot of work here since it pushes the reader toward a causality without us ever having to claim it outright.
+
+                    </li>
+                    <li><strong>Decision 3: Bucketing 6+ allegations into one group (Score: -1)</strong><br>
+                     We did the same thing Side A did with “4+ officers” and lumped every complaint with 6 or more allegations into a single point. It keeps the line from getting messy at the end, but it hides that this last group isn’t really one number, it’s everything from 6 allegations and up.
+
+                    </li>
+                    <li><strong>Decision 4: Shading the area under the line (Score: +1)</strong><br>
+                    We filled in the space under the line instead of just leaving it as a plain line. It doesn’t change any of the actual numbers, but it makes the upward trend feel heavier and more convincing than it would otherwise.
+
+                    </li>
                 </ul>
             </section>
 
             <section>
                 <h2>Final Reflection</h2>
 
-                <p>[WRITE FINAL REFLECTION PARAGRAPHS HERE.]</p>
+                <p>Building the visualizations was the straightforward part; the difficult part was determining which proposition we lean towards based on the visualizations and their design choices, since we need to identify the deceptive techniques used in the visualizations in order to draw the accurate conclusion. At the end, we lean toward the opposite side, because although it seems like there is a causal relationship between the number of officers named and that of substantiation, there are two other factors involved: First, complaints naming more officers are also bigger, with 4.4 allegations on average vs. 2.0 for that of one officer. Second, bigger allegations are substantiated more often, with 69% for over six allegations vs. 18% for one. Since the number of named officers and magnitude of the case are proportional, the gap is influenced by both.<br><br>
+We define ethical analysis and visualization to be actively ensuring the impression the viewers have on the visualizations matches what the data support, and being transparent about the design choices that could change the understanding completely. That includes stating what was counted, how they are grouped, and what comparisons were left out. Although there is only a thin line between acceptable and misleading persuasive choices, we think there are two aspects to consider: Does the visualization match the actual impact? And are viewers able to identify the choices that affect the conclusion the most? It becomes misleading when a design hides something that the viewers should know, such as underrepresented groups, a metric that favors a specific side, or any comparison that might weaken the claim the visualization is trying to make.<br><br>
+What surprised us was how persuasive both the supporting and opposing graphs come out to be just by simple tricks like bucketing the last group together (a 4+ bucket for the supporting side, and a 6+ bucket for the opposing side), picking metrics that favors bigger complaints, and also wording annotations to sound causal (saying breadth “tracks” substantiation) which pushes reader to a causal conclusion. We didn’t fake any numbers, instead we just made framing decisions while cleaning up the charts. It made us realize that people could look at the exact same dataset and walk away genuinely convinced of opposite conclusions just by the framing decisions they chose to take.
+
+</p>
             </section>
         </main>
     <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920" integrity="sha512-L0ha0OXavK/8okipN9F8BtP84dg9DUhPERbBXzwI6dgTA55d2+yweo3pn5CSFYs45/r8md2+xvUPtTdvTNRfjA==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;c822b88e119346678db149ed7b7721c9&quot;,&quot;r&quot;:1,&quot;spa&quot;:2}" crossorigin="anonymous"></script>
